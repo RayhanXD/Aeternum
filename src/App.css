@@ -215,13 +215,13 @@ button {
   /* border: 1px solid black; */
 }
 .slide-in-clock {
-  animation: slideInClockAnimation 0.8s ease-in forwards;
+  animation: slideInClockAnimation .75s ease-in forwards;
 }
 
 @keyframes slideInClockAnimation {
   from {
     opacity: 0;
-    transform: translateX(3%);
+    transform: translateX(4%);
   }
   to {
     opacity: 1;
@@ -230,13 +230,13 @@ button {
 }
 
 .slide-in-main {
-  animation: slideInMainAnimation 0.8s ease-in forwards;
+  animation: slideInMainAnimation .75s ease-in forwards;
 }
 
 @keyframes slideInMainAnimation {
   from {
     opacity: 0;
-    transform: translateX(-3%);
+    transform: translateX(-4%);
   }
   to {
     opacity: 1;
@@ -271,19 +271,19 @@ button {
   align-items: center;
 }
 .outer {
-  margin-left: 50px;
+  margin-left: 100px;
   width: 500px; 
   height: 500px; 
   background-color: transparent; 
   border-radius: 50%;
-  border: 5px solid black;
+  border: 7.5px solid #392137;
   position: relative;
   transform: rotate(-15deg);
 }
 .inner {
   width: 25px;
   height: 25px;
-  background-color: black;
+  background-color: #592831;
   border-radius: 50%;
   position: absolute;
   top: 50%;
@@ -294,13 +294,13 @@ button {
 .hand {
   width: 5px;
   height: 200px; 
-  background-color: black;
+  background-color: #392137;
   position: absolute;
   top: 30%;
   left: 50%;
   transform-origin: bottom;
   transform: translate(-50%, -50%) rotate(0deg); 
-  z-index: 5;
+  z-index: 0;
   animation: rotateHand 12s linear infinite; 
 }
 
@@ -324,3 +324,8 @@ button {
   line-height: 40px;
   text-align: center;
 }
+#hourimg {
+  width: 32px;
+  height: auto;
+}
+

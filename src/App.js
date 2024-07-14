@@ -1,6 +1,9 @@
 import './App.css';
 import bag from './navIcons/bag.png';
 import down from './navIcons/down.png';
+import emptyglass from './navIcons/hourglass1.png';
+import halfglass from './navIcons/glassbottom.png';
+import halfglass1 from './navIcons/glasstop.png';
 import up from './navIcons/up.png';
 import info from './navIcons/info.png';
 import hourglass from './navIcons/hourglass.png'
@@ -9,7 +12,20 @@ import React, { useEffect, useRef } from 'react';
 
 export default function App() {
   
-  const numbers = ['U', 'M', '1', '2', '3', '4', 'A', 'E', 'T', 'E', 'R', 'N'];
+  const numbers = [
+    'U', 
+    'M', 
+    { img: emptyglass }, // Replacing the '1' with the hourglass image
+    { img: halfglass }, 
+    { img: halfglass1}, 
+    { img: emptyglass }, 
+    'A', 
+    'E', 
+    'T', 
+    'E', 
+    'R', 
+    'N'
+  ];  
   const rotationStep = 360 / numbers.length;
   const clockRef = useRef(null);
   const mainRef = useRef(null);
@@ -127,14 +143,18 @@ export default function App() {
           <div className="clock" ref={clockRef}>
           <div className="outer">
           <div className="number-container">
-              {numbers.map((number, index) => {
+              {numbers.map((item, index) => {
                 const rotation = rotationStep * index;
                 const style = {
                   transform: `rotate(${rotation}deg) translate(230px) rotate(${-rotation + 15}deg)`
                 };
                 return (
                   <div key={index} className="number" style={style}>
-                    {number}
+                    {typeof item === 'object' && item.img ? (
+                      <img src={item.img} id="hourimg" />
+                    ) : (
+                      <span>{item}</span>
+                    )}
                   </div>
                 );
               })}
