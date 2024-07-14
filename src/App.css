@@ -2,16 +2,21 @@ body {
   height: 100%;
   width: 100%;
   background-color: #592831;
+  scroll-behavior: smooth;
 }
 .home {
   height: 100svh;
   width: 100svw;
 }
+button {
+  background-color: transparent;
+  border: none;
+}
 .title {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -70%);
+  transform: translate(-50svw, -70svh);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,6 +32,10 @@ body {
     transform: translate(-50%, -70%);
   }
 }
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
 .title h1 span {
   opacity: 0;
   font-weight: 100;
@@ -35,14 +44,10 @@ body {
   color: #DBC1AC;
   animation: fadeIn 2s ease forwards;
 }
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
 .subtitle {
   position: absolute;
-  top: 55%;
-  left: 17.5%;
+  top: 55svh;
+  left: 17.5svw;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -203,15 +208,51 @@ body {
   align-items: center;
 }
 .content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   height: 85svh;
   width: 85svw;
   /* border: 1px solid black; */
 }
-.content h1 {
+.slide-in-clock {
+  animation: slideInClockAnimation 0.8s ease-in forwards;
+}
+
+@keyframes slideInClockAnimation {
+  from {
+    opacity: 0;
+    transform: translateX(3%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-in-main {
+  animation: slideInMainAnimation 0.8s ease-in forwards;
+}
+
+@keyframes slideInMainAnimation {
+  from {
+    opacity: 0;
+    transform: translateX(-3%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.main h1 {
   color: #392137;
   font-size: 750%;
   font-weight: 200;
   margin-bottom: 10px;
+}
+.main h2 {
+  font-size: 250%;
+  font-weight: 200;
+  color: #392137;
 }
 #gradient {
   font-size: 1000%;
@@ -221,9 +262,65 @@ body {
   -webkit-background-clip: text;
   color: transparent;
 }
-.content h2 {
-  font-size: 250%;
-  font-weight: 200;
-  color: #392137;
+.clock {
+  position: relative;
+  width: auto;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.outer {
+  margin-left: 50px;
+  width: 500px; 
+  height: 500px; 
+  background-color: transparent; 
+  border-radius: 50%;
+  border: 5px solid black;
+  position: relative;
+  transform: rotate(-15deg);
+}
+.inner {
+  width: 25px;
+  height: 25px;
+  background-color: black;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+.hand {
+  width: 5px;
+  height: 200px; 
+  background-color: black;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform-origin: bottom;
+  transform: translate(-50%, -50%) rotate(0deg); 
+  z-index: 5;
+  animation: rotateHand 12s linear infinite; 
 }
 
+@keyframes rotateHand {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+.number-container {
+  position: absolute;
+  width: 90%;
+  height: 90%;
+  top: 46%;
+  left: 46%;
+}
+.number {
+  position: absolute;
+  font-size: 150%;
+  color: #592831;
+  width: 40px; 
+  height: 40px; 
+  line-height: 40px;
+  text-align: center;
+}

@@ -5,8 +5,53 @@ import up from './navIcons/up.png';
 import info from './navIcons/info.png';
 import hourglass from './navIcons/hourglass.png'
 import brush from './navIcons/brush.png';
+import React, { useEffect, useRef } from 'react';
 
-function App() {
+export default function App() {
+  
+  const numbers = ['U', 'M', '1', '2', '3', '4', 'A', 'E', 'T', 'E', 'R', 'N'];
+  const rotationStep = 360 / numbers.length;
+  const clockRef = useRef(null);
+  const mainRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.target === clockRef.current && entry.isIntersecting) {
+            entry.target.classList.add('slide-in-clock');
+          } else if (entry.target === clockRef.current) {
+            entry.target.classList.remove('slide-in-clock');
+          }
+          if (entry.target === mainRef.current && entry.isIntersecting) {
+            entry.target.classList.add('slide-in-main');
+          } else if (entry.target === mainRef.current) {
+            entry.target.classList.remove('slide-in-main');
+          }
+          
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (clockRef.current) {
+      observer.observe(clockRef.current);
+    }
+
+    if (mainRef.current) {
+      observer.observe(mainRef.current);
+    }
+
+    return () => {
+      if (clockRef.current) {
+        observer.unobserve(clockRef.current);
+      }
+      if (mainRef.current) {
+        observer.unobserve(mainRef.current);
+      }
+    };
+  }, []);
+
   return (
     <body>
       <section className="home">
@@ -64,7 +109,9 @@ function App() {
           <div className="nav">
             <img src={up} alt="description" />
             <img src={hourglass} alt="description" />
-            <img src={info} alt="description" />
+            <button onClick={() => document.querySelector('.about').scrollIntoView({ behavior: 'smooth' })}>
+              <img src={info} alt="description"/>
+            </button>
             <img src={brush} alt="brush" />
             <img src={bag} alt="description" />          
             <img src={down} alt="description" />
@@ -72,13 +119,34 @@ function App() {
          </div>
       <section className="about">
         <div className="content">
-          <h1>We Are</h1>
-          <a id="gradient">Aeternum</a>
-          <h2>Develop and Launch your company's <br />website with us.</h2>
+          <div className="main" ref={mainRef}>
+            <h1>We Are</h1>
+            <a id="gradient">Aeternum</a>
+            <h2>Develop and Launch your company's <br />website with us.</h2>
+          </div>
+          <div className="clock" ref={clockRef}>
+          <div className="outer">
+          <div className="number-container">
+              {numbers.map((number, index) => {
+                const rotation = rotationStep * index;
+                const style = {
+                  transform: `rotate(${rotation}deg) translate(230px) rotate(${-rotation + 15}deg)`
+                };
+                return (
+                  <div key={index} className="number" style={style}>
+                    {number}
+                  </div>
+                );
+              })}
+            </div>
+            <div className="inner">
+            </div>
+            <div className="hand">
+            </div>
+          </div>
+        </div>
         </div>
       </section>
       </body>
   );
 }
-
-export default App;
