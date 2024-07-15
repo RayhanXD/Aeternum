@@ -1,4 +1,5 @@
 import './App.css';
+import './locomotive-scroll.css';
 import bag from './navIcons/bag.png';
 import down from './navIcons/down.png';
 import emptyglass from './navIcons/hourglass1.png';
@@ -9,13 +10,15 @@ import info from './navIcons/info.png';
 import hourglass from './navIcons/hourglass.png'
 import brush from './navIcons/brush.png';
 import React, { useEffect, useRef } from 'react';
+import LocomotiveScroll from 'locomotive-scroll';
 
 export default function App() {
-  
+
+  const scrollRef = new useRef(null);
   const numbers = [
     'U', 
     'M', 
-    { img: emptyglass }, // Replacing the '1' with the hourglass image
+    { img: emptyglass },
     { img: halfglass }, 
     { img: halfglass1}, 
     { img: emptyglass }, 
@@ -31,6 +34,12 @@ export default function App() {
   const mainRef = useRef(null);
 
   useEffect(() => {
+
+    const scroll = new LocomotiveScroll({
+      el: scrollRef.current,
+      smooth: true,
+    });
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -65,11 +74,12 @@ export default function App() {
       if (mainRef.current) {
         observer.unobserve(mainRef.current);
       }
+      scroll.destroy();
     };
   }, []);
 
   return (
-    <body>
+    <body ref={scrollRef} className='scroll-container'>
       <section className="home">
         <div className="title">
           <h1>{'AETERNUM'.split('').map((char, index) => <span key={index} style={{ animationDelay: `${index * 0.075}s` }}>{char}</span>)}</h1>

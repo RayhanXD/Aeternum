@@ -2,7 +2,7 @@ body {
   height: 100%;
   width: 100%;
   background-color: #592831;
-  scroll-behavior: smooth;
+  /* scroll-behavior: smooth; */
 }
 .home {
   height: 100svh;
@@ -14,15 +14,15 @@ button {
 }
 .title {
   position: absolute;
-  top: 50%;
+  top: 25%;
   left: 50%;
-  transform: translate(-50svw, -70svh);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
   width: 90%;
   animation: slideDown 2s ease forwards;
+  /* border: 1px solid black; */
 }
 @keyframes slideDown {
   from {
@@ -158,12 +158,13 @@ button {
 }
 .navbar {
   position: fixed;
-  bottom: 5%;
+  bottom: 102.5svh;
   left: 0;
   right: 0;
   /* border-top: 1px solid black; */
   display: flex;
   justify-content: center;
+  z-index: 0;
 }
 .nav {
   width: 500px;
