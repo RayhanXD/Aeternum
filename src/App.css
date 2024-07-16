@@ -1,12 +1,19 @@
+/* * {
+  outline: 1px solid red;
+} */
 body {
   height: 100%;
   width: 100%;
   background-color: #592831;
-  /* scroll-behavior: smooth; */
+  scroll-behavior: smooth;
 }
 .home {
-  height: 100svh;
-  width: 100svw;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* border: 1px solid black; */
 }
 button {
   background-color: transparent;
@@ -14,7 +21,7 @@ button {
 }
 .title {
   position: absolute;
-  top: 25%;
+  top: 50%;
   left: 50%;
   display: flex;
   justify-content: center;
@@ -46,8 +53,12 @@ button {
 }
 .subtitle {
   position: absolute;
-  top: 55svh;
-  left: 17.5svw;
+  top: 55%;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -86,9 +97,9 @@ button {
   align-items: center;
   grid-template-columns: repeat(11, auto);
   height: 62.5svh;
-  padding: 125px;
   z-index: 1;
   animation: fadeIn 2s ease-out forwards;
+  margin-top: -75px;
   /* border: 1px solid black; Added black border */
 }
 .grid-item {
@@ -158,13 +169,14 @@ button {
 }
 .navbar {
   position: fixed;
-  bottom: 102.5svh;
-  left: 0;
-  right: 0;
+  left: 50%; /* Center horizontally */
+  bottom: 5%; /* Align to the bottom */
+  transform: translateX(-50%); /* Adjust for the element's width */
   /* border-top: 1px solid black; */
   display: flex;
   justify-content: center;
-  z-index: 0;
+  align-items: center;
+  z-index: 10;
 }
 .nav {
   width: 500px;
@@ -270,16 +282,18 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-left: 30px;
 }
 .outer {
-  margin-left: 100px;
-  width: 500px; 
-  height: 500px; 
+  width: 100%; /* Adjust the width as necessary */
+  max-width: 400px; /* Your fixed width or maximum width */
+  height: 400px; /* Adjust height as necessary */
   background-color: transparent; 
   border-radius: 50%;
   border: 7.5px solid #392137;
-  position: relative;
-  transform: rotate(-15deg);
+  position: relative; /* Change to relative if it should be within a container */
+  margin: 0 auto; /* Center it horizontally if needed */
+  /* transform: rotate(-15deg); If this causes overflow, consider adjusting or removing */
 }
 .inner {
   width: 25px;
@@ -293,15 +307,15 @@ button {
   z-index: 1;
 }
 .hand {
-  width: 5px;
-  height: 200px; 
+  width: 3px;
+  height: 175px; 
   background-color: #392137;
   position: absolute;
-  top: 30%;
+  top: 28%; /* Adjusted from 30% to 25% to move up by 5% */
   left: 50%;
   transform-origin: bottom;
   transform: translate(-50%, -50%) rotate(0deg); 
-  z-index: 0;
+  z-index: -1;
   animation: rotateHand 12s linear infinite; 
 }
 

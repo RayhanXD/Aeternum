@@ -37,7 +37,7 @@ export default function App() {
 
     const scroll = new LocomotiveScroll({
       el: scrollRef.current,
-      smooth: true,
+      smooth: false,
     });
 
     const observer = new IntersectionObserver(
@@ -156,7 +156,7 @@ export default function App() {
               {numbers.map((item, index) => {
                 const rotation = rotationStep * index;
                 const style = {
-                  transform: `rotate(${rotation}deg) translate(230px) rotate(${-rotation + 15}deg)`
+                  transform: `rotate(${rotation}deg) translate(230px) rotate(${-rotation}deg)`
                 };
                 return (
                   <div key={index} className="number" style={style}>
