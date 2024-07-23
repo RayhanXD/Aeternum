@@ -176,7 +176,24 @@ export default function App() {
           </div>
         </div>
         </div>
+        
       </section>
+      <div class="design-section">
+  <h2 class="design-text">Choose from various Designs</h2>
+  <div class="new-box">
+    <div class="button-container">
+      <button id="minimalistic" class="design-button">Minimalistic</button>
+      <button id="professional" class="design-button">Professional</button>
+      <button id="vibrant" class="design-button">Vibrant</button>
+      <button id="artistic" class="design-button">Artistic</button>
+    </div>
+  </div>
+</div>
+
+<div id="changeable-box" class="bottom-box">
+  <p class="personal-text">Personally developed by us</p>
+  <div class="inner-box"></div>
+</div>
       </body>
   );
 }

@@ -1,6 +1,7 @@
 /* * {
   outline: 1px solid red;
 } */
+
 body {
   height: 100%;
   width: 100%;
@@ -344,3 +345,81 @@ button {
   height: auto;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+.design-section {
+  position: relative;
+  width: 100%;
+  height: 740px; /* Adjust this height as needed */
+  display: flex;
+  justify-content: flex-start; /* Changed from center to flex-start */
+  align-items: center;
+}
+
+.design-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 100px;
+  line-height: 1.2;
+  font-weight: 500;
+  text-align: left; /* Changed from center to left */
+  margin: 0;
+  padding: 0;
+  margin-left: 4%; /* Adjust this value to move text more or less to the left */
+  margin-top: -20%;
+}
+
+
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 20%;
+  left: 0;
+  right: 0;
+  gap: 60px;
+}
+
+.design-button {
+  background-color: #60385C;
+  color: #D5BAA5;
+  font-family: 'Inter', sans-serif;
+  font-size: 40px;
+  padding: 15px 30px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 25px;
+}
+
+.bottom-box {
+  width: 100%;
+  height: 1512px;
+  background-color: #DBC1AC;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding-left: 5%;
+  padding-top: 50px;
+}
+
+.personal-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 100px;
+  color: #34171B;
+  margin-bottom: 40px;
+  line-height: 1.2;
+}
+
+.inner-box {
+  width: 90%;
+  max-width: 1599px;
+  height: 848px;
+  background-color: #34171B;
+  align-self: center;
+  margin-right: auto;
+  margin-left: 0%; /* Adjust this value to move it more or less to the left */
+  width: 90%; /* Adjust width as needed */
+}
