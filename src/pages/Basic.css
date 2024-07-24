@@ -1,0 +1,40 @@
+body {
+  height: 4260px;
+  height: 426vh; /* Assuming 1vh = 10px, adjust as needed */
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap');
+
+.basic-text-container {
+  display: flex;
+  justify-content: center;
+  padding-top: 256;
+}
+
+.basic-text {
+  font-family: 'Major Mono Display', monospace;
+  font-size: 250px;
+  color: #DBC1AC;
+  text-align: center;
+  padding-top: 223px;
+}
+
+.basic-text::first-letter {
+  font-weight: bold;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .basic-text {
+    font-size: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .basic-text {
+    font-size: 100px;
+  }
+  .basic-text-container {
+    padding-top: 118px; /* Halved for smaller screens */
+  }
+}

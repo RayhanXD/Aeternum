@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+* {
+
+  font-family: 'Inter', sans-serif;
+}
+
+.faq-title
+{
+    color: #DBC1AC;
+}
+
+.faq-item 
+{
+    text-align: center; 
+    padding-top: 10px;
+    padding-bottom: 20px;
+
+}
+
+.faq-item h2
+{
+    margin-top: 0; 
+    margin-bottom: 20px;
+}
