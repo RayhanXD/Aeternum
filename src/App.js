@@ -45,7 +45,6 @@ export const App = () => {
   const handleMouseLeave = () => {
     const imageElement = document.querySelector('.designImages img');
     imageElement.style.opacity = 0; // Make the image fully transparent
-    imageElement.src = `${process.env.PUBLIC_URL}/static/back.jpg`;
   };
   
   useEffect(() => {
@@ -158,7 +157,9 @@ export const App = () => {
         <div className="navbar">
           <div className="nav">
             <img src={up} alt="description" />
-            <img src={hourglass} alt="description" />
+            <button onClick={() => document.querySelector('.home').scrollIntoView({ behavior: 'smooth' })}>
+              <img src={hourglass} alt="Go to home"/>
+            </button>
             <button onClick={() => document.querySelector('.about').scrollIntoView({ behavior: 'smooth' })}>
               <img src={info} alt="description"/>
             </button>
@@ -215,19 +216,19 @@ export const App = () => {
             <div className='designChange'>
               <ul className='designTypes'>
                 <li>
-                  <a className='designName' onMouseEnter={() => handleMouseEnter('Black')} onMouseLeave={handleMouseLeave} href='#0'>Minimalistic</a>
+                  <a className='designName' onMouseEnter={() => handleMouseEnter('Black')} onMouseLeave={handleMouseLeave} href='#Minimal'>Minimalistic</a>
                   <div className="underline"></div>
                 </li>
                 <li>
-                  <a className='designName' onMouseEnter={() => handleMouseEnter('grey')} onMouseLeave={handleMouseLeave} href='#0'>Professional</a>
+                  <a className='designName' onMouseEnter={() => handleMouseEnter('grey')} onMouseLeave={handleMouseLeave} href='#Professional'>Professional</a>
                   <div className="underline"></div>
                 </li>
                 <li>
-                  <a className='designName' onMouseEnter={() => handleMouseEnter('lightgrey')} onMouseLeave={handleMouseLeave} href='#0'>Vibrant</a>
+                  <a className='designName' onMouseEnter={() => handleMouseEnter('lightgrey')} onMouseLeave={handleMouseLeave} href='#Vibrant'>Vibrant</a>
                   <div className="underline"></div>
                 </li>
                 <li>
-                  <a className='designName' onMouseEnter={() => handleMouseEnter('white')} onMouseLeave={handleMouseLeave} href='#0'>Artistic</a>
+                  <a className='designName' onMouseEnter={() => handleMouseEnter('white')} onMouseLeave={handleMouseLeave} href='#Artistic'>Artistic</a>
                   <div className="underline"></div>
                 </li>
               </ul>

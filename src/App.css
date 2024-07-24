@@ -187,7 +187,7 @@ button {
   z-index: 10;
 }
 .nav {
-  width: 500px;
+  width: 525px;
   height: 35px;
   background-color: #392137;
   border-radius: 50px;
@@ -423,8 +423,10 @@ button {
 
 .designScreen {
 
-  padding: 50px;
   border-radius: 30px;
+  height: 300px;
+  border: 2px solid black;
+  background-color: rgba(0, 0, 0, 0.1);
   
 }
 
@@ -432,11 +434,11 @@ button {
 
   width: 750px;
   height: 300px;
-  opacity: .25;
-  transition: opacity 0.5s ease-in-out; /* Smooth transition for the opacity */
-  border: 2px solid black;
+  opacity: 0;
+  transition: opacity .25s ease-out; /* Smooth transition for the opacity */
   border-radius: 30px;
 }
+
 @keyframes fadeInUnderline {
   from {
     text-decoration-color: transparent;
