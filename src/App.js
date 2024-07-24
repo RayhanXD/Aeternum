@@ -11,8 +11,10 @@ import hourglass from './navIcons/hourglass.png'
 import brush from './navIcons/brush.png';
 import React, { useEffect, useRef } from 'react';
 import LocomotiveScroll from 'locomotive-scroll';
+import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 
-export default function App() {
+
+export const App = () => {
 
   const scrollRef = new useRef(null);
   const numbers = [
@@ -33,6 +35,19 @@ export default function App() {
   const clockRef = useRef(null);
   const mainRef = useRef(null);
 
+  const handleMouseEnter = (designType) => {
+    const imageElement = document.querySelector('.designImages img');
+    const imagePath = `${process.env.PUBLIC_URL}/static/${designType}.jpeg`; // Replace with your actual image paths
+    imageElement.src = imagePath;
+    imageElement.style.opacity = 1; // Make the image fully visible
+  };
+
+  const handleMouseLeave = () => {
+    const imageElement = document.querySelector('.designImages img');
+    imageElement.style.opacity = 0; // Make the image fully transparent
+    imageElement.src = `${process.env.PUBLIC_URL}/static/back.jpg`;
+  };
+  
   useEffect(() => {
 
     const scroll = new LocomotiveScroll({
@@ -79,7 +94,12 @@ export default function App() {
   }, []);
 
   return (
+    
+
+
+
     <body ref={scrollRef} className='scroll-container'>
+      
       <section className="home">
         <div className="title">
           <h1>{'AETERNUM'.split('').map((char, index) => <span key={index} style={{ animationDelay: `${index * 0.075}s` }}>{char}</span>)}</h1>
@@ -131,6 +151,10 @@ export default function App() {
           </div>
         </div>
       </section>
+
+
+
+
         <div className="navbar">
           <div className="nav">
             <img src={up} alt="description" />
@@ -138,11 +162,14 @@ export default function App() {
             <button onClick={() => document.querySelector('.about').scrollIntoView({ behavior: 'smooth' })}>
               <img src={info} alt="description"/>
             </button>
-            <img src={brush} alt="brush" />
+            <button onClick={() => document.querySelector('.design').scrollIntoView({ behavior: 'smooth' })}>
+              <img src={brush} alt="brush"/>
+            </button>
             <img src={bag} alt="description" />          
             <img src={down} alt="description" />
           </div>
          </div>
+
       <section className="about">
         <div className="content">
           <div className="main" ref={mainRef}>
@@ -178,22 +205,46 @@ export default function App() {
         </div>
         
       </section>
-      <div class="design-section">
-  <h2 class="design-text">Choose from various Designs</h2>
-  <div class="new-box">
-    <div class="button-container">
-      <button id="minimalistic" class="design-button">Minimalistic</button>
-      <button id="professional" class="design-button">Professional</button>
-      <button id="vibrant" class="design-button">Vibrant</button>
-      <button id="artistic" class="design-button">Artistic</button>
-    </div>
-  </div>
-</div>
+      
+      <section className="design">
+          <div className='designContent'>
+            <div className='titles'>
+              <h1 className='designTitle'>Personally designed by us.</h1>
+              <h2 className='designSubtitle'>Hover over each design to discover our capabilities</h2>
+            </div>
+            <div className='designChange'>
+              <ul className='designTypes'>
+                <li>
+                  <a className='designName' onMouseEnter={() => handleMouseEnter('Black')} onMouseLeave={handleMouseLeave} href='#0'>Minimalistic</a>
+                  <div className="underline"></div>
+                </li>
+                <li>
+                  <a className='designName' onMouseEnter={() => handleMouseEnter('grey')} onMouseLeave={handleMouseLeave} href='#0'>Professional</a>
+                  <div className="underline"></div>
+                </li>
+                <li>
+                  <a className='designName' onMouseEnter={() => handleMouseEnter('lightgrey')} onMouseLeave={handleMouseLeave} href='#0'>Vibrant</a>
+                  <div className="underline"></div>
+                </li>
+                <li>
+                  <a className='designName' onMouseEnter={() => handleMouseEnter('white')} onMouseLeave={handleMouseLeave} href='#0'>Artistic</a>
+                  <div className="underline"></div>
+                </li>
+              </ul>
+              <div className='designScreen'>
+                <div className='designImages'>
+                  <img src=''></img>
+                </div>
+              </div>
+            </div>
+          </div>
+      </section>
+      
+    <div class="pricing-section"></div>
 
-<div id="changeable-box" class="bottom-box">
-  <p class="personal-text">Personally developed by us</p>
-  <div class="inner-box"></div>
-</div>
-      </body>
+  
+        
+    </body>
+    
   );
 }

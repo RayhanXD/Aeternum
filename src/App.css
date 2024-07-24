@@ -2,6 +2,13 @@
   outline: 1px solid red;
 } */
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+* {
+
+  font-family: 'Inter', sans-serif;
+}
+
 body {
   height: 100%;
   width: 100%;
@@ -307,6 +314,7 @@ button {
   transform: translate(-50%, -50%);
   z-index: 1;
 }
+
 .hand {
   width: 3px;
   height: 175px; 
@@ -345,81 +353,149 @@ button {
   height: auto;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
-.design-section {
-  position: relative;
-  width: 100%;
-  height: 740px; /* Adjust this height as needed */
+/*design section*/
+
+.design {
+
+  width: 100svw;
+  height: 100svh;
+  background-color: transparent;
+  /* border: 5px solid black; */
+
+}
+
+.designContent {
+
+  margin: 50px;
+  /* border: 2px solid black; */
+  width: auto;
+  height: auto;
   display: flex;
-  justify-content: flex-start; /* Changed from center to flex-start */
   align-items: center;
+  flex-direction: column;
 }
 
-.design-text {
-  font-family: 'Inter', sans-serif;
-  font-size: 100px;
-  line-height: 1.2;
-  font-weight: 500;
-  text-align: left; /* Changed from center to left */
-  margin: 0;
-  padding: 0;
-  margin-left: 4%; /* Adjust this value to move text more or less to the left */
-  margin-top: -20%;
+.titles {
+
+  /* border: 2px solid black; */
+}
+.designTitle {
+
+  /* border: 2px solid black; */
+  color: #DBC1AC;
+  font-size: 500%;
+  font-weight: 300;
+
+}
+
+.designSubtitle {
+
+  /* border: 2px solid black; */
+  color: #DBC1AC;
+  font-size: 125%;
+  font-weight: 200;
+  margin-top: -40px; /* Adjust the negative value as needed to reduce the space */
+  margin-bottom: 40px;
+  text-align: center;
+  
+}
+
+.designChange {
+
+  height: auto;
+  width: 100%;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* border: 2px solid black; */
+}
+.designTypes {
+
+  /* border: 2px solid black; */
+  list-style-type: none;
+  padding-right: 40px;
+  font-size: 200%;
+  font-weight: 200;
+  color: #DBC1AC;
+
+}
+
+.designScreen {
+
+  padding: 50px;
+  border-radius: 30px;
+  
+}
+
+.designImages img {
+
+  width: 750px;
+  height: 300px;
+  opacity: .25;
+  transition: opacity 0.5s ease-in-out; /* Smooth transition for the opacity */
+  border: 2px solid black;
+  border-radius: 30px;
+}
+@keyframes fadeInUnderline {
+  from {
+    text-decoration-color: transparent;
+  }
+  to {
+    text-decoration-color: #DBC1AC;
+  }
+}
+
+.underline {
+
+  background-color: white;
+  width: 300px;
+  height: 1px;
+  margin: 20px;
+
+}
+.designName {
+  text-decoration: underline;
+  text-decoration-color: transparent; /* Initially, the underline is transparent */
+  text-underline-offset: 7.5px; /* Adjust the offset as needed */
+  text-decoration-thickness: 1px;
+  transition: text-decoration-color 0.25s ease-in-out; /* Transition applies to both hover and un-hover states */
+  color: #DBC1AC;
+  margin: 20px;
+
+}
+
+.designName:hover {
+  text-decoration-color: #DBC1AC; /* This will trigger the transition on hover */
 }
 
 
-
-.button-container {
+.main-footer {
+  width: 100%;
+  height: 400px;
+  background-color: #412F28;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
-  bottom: 20%;
-  left: 0;
-  right: 0;
-  gap: 60px;
 }
 
-.design-button {
-  background-color: #60385C;
-  color: #D5BAA5;
-  font-family: 'Inter', sans-serif;
-  font-size: 40px;
-  padding: 15px 30px;
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  border-radius: 25px;
-}
-
-.bottom-box {
-  width: 100%;
-  height: 1512px;
-  background-color: #DBC1AC;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  padding-left: 5%;
-  padding-top: 50px;
-}
-
-.personal-text {
-  font-family: 'Inter', sans-serif;
+.faq-link {
   font-size: 100px;
-  color: #34171B;
-  margin-bottom: 40px;
-  line-height: 1.2;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
 }
 
-.inner-box {
-  width: 90%;
-  max-width: 1599px;
-  height: 848px;
-  background-color: #34171B;
-  align-self: center;
-  margin-right: auto;
-  margin-left: 0%; /* Adjust this value to move it more or less to the left */
-  width: 90%; /* Adjust width as needed */
+.faq-link:hover {
+  text-decoration: underline;
+}
+
+.sextion{
+  margin-bottom: 50px;
+}
+
+.pricing-header {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;  color: #DBC1AC;
 }
