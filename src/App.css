@@ -560,7 +560,8 @@ button {
 .aeternum-footer {
   flex-shrink: 0;
   height: 500px;
-  background-color: #020402;
+  background: linear-gradient(to bottom, transparent, #020402);
+  opacity: .4;
   display: flex;
   justify-content: center;
   align-items: flex-start;
