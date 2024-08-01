@@ -88,11 +88,11 @@ export const App = () => {
         <div className="subtitle">
           <h1>{'Where  you  create  a  page  in  history'.split('').map((char, index) => {
             return char !== ' ' ? (
-              <span key={index} className="subtitle-char" style={{ animationDelay: `${index * 0.05}s` }}>
+              <span key={index} className="subtitle-char" style={{ animationDelay: `${index * 0.025}s` }}>
                 {char}
               </span>
             ) : (
-              <span key={index} aria-hidden="true">&nbsp;</span>
+              <span key={index} aria-hidden="true">&nbsp;&nbsp;</span>
             );
           })}</h1>
         </div>

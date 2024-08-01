@@ -16,7 +16,7 @@
 body {
   height: 100%;
   width: 100%;
-  background-color: #CAD6EC;
+  background: linear-gradient(#CAD6EC, #F0F0F0, #CAD6EC);
   scroll-behavior: smooth;
 }
 
@@ -103,7 +103,7 @@ button {
   font-weight: 300;
   font-size: 75%;
   color: #EDDEE1;
-  letter-spacing: 20px;
+  letter-spacing: 17.5px;
   animation: fadeIn 2s infinite;
   display: inline-block;
   vertical-align: middle; 
@@ -236,7 +236,7 @@ button {
   transform: scale(1.2);
 }
 .about {
-  background-color: #EDDEE1;
+  /* background-color: #EDDEE1; */
   width: 100svw;
   height: 100svh;
   display: flex;
@@ -427,7 +427,7 @@ button {
 
   width: 100svw;
   height: 100svh;
-  background-color: #EDDEE1;
+  /* background-color: #EDDEE1; */
   /* border: 5px solid black; */
 
 }
@@ -626,7 +626,7 @@ button {
   filter: brightness(0) invert(1);
 }
 .pricing {
-  background-color: #CAD6EC;
+  /* background-color: #CAD6EC; */
   padding: 50px 0;
   overflow: hidden;
   height: 1400px;
