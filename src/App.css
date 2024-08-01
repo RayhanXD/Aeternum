@@ -9,12 +9,17 @@
   font-family: 'Inter', sans-serif;
 }
 
+
+
+@import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap" rel="stylesheet');
+
 body {
   height: 100%;
   width: 100%;
-  background-color: #592831;
+  background-color: #CAD6EC;
   scroll-behavior: smooth;
 }
+
 .home {
   height: 100vh;
   width: 100vw;
@@ -23,10 +28,12 @@ body {
   justify-content: center;
   /* border: 1px solid black; */
 }
+
 button {
   background-color: transparent;
   border: none;
 }
+
 .title {
   position: absolute;
   top: 50%;
@@ -47,18 +54,21 @@ button {
     transform: translate(-50%, -70%);
   }
 }
+
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
 }
+
 .title h1 span {
   opacity: 0;
   font-weight: 100;
   font-size: 1000%;
   letter-spacing: 15px;
-  color: #DBC1AC;
+  color: #020402;
   animation: fadeIn 2s ease forwards;
 }
+
 .subtitle {
   position: absolute;
   top: 55%;
@@ -88,10 +98,11 @@ button {
     transform: translateY(0);
   }
 }
+
 .subtitle-char {
-  font-weight: 100;
+  font-weight: 300;
   font-size: 75%;
-  color: #DBC1AC;
+  color: #EDDEE1;
   letter-spacing: 20px;
   animation: fadeIn 2s infinite;
   display: inline-block;
@@ -99,6 +110,7 @@ button {
   text-align: center; 
   padding-bottom: 5px;
 }
+
 .grid-container {
   display: flex;
   justify-content: center;
@@ -106,10 +118,12 @@ button {
   grid-template-columns: repeat(11, auto);
   height: 62.5svh;
   z-index: 1;
+  gap: 20px;
   animation: fadeIn 2s ease-out forwards;
   margin-top: -75px;
   /* border: 1px solid black; Added black border */
 }
+
 .grid-item {
   display: flex;
   justify-content: center;
@@ -119,6 +133,7 @@ button {
 }
 .grid-item img {
   width: 51px;
+  opacity: .8;
   border-radius: 50px;
   object-fit: cover;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -221,7 +236,7 @@ button {
   transform: scale(1.2);
 }
 .about {
-  background-color: #DBC1AC;
+  background-color: #EDDEE1;
   width: 100svw;
   height: 100svh;
   display: flex;
@@ -264,93 +279,146 @@ button {
     transform: translateX(0);
   }
 }
+.main {
+
+    width: 90%;
+    padding-right: px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Vertically aligns content to the center */
+    text-align: left;
+    padding-bottom: 75px;
+    /* border: 1px solid black; */
+
+}
 .main h1 {
   color: #392137;
-  font-size: 750%;
+  font-size: 700%;
   font-weight: 200;
   margin-bottom: 10px;
+  width: 100%;
 }
+
 .main h2 {
-  font-size: 250%;
+  width: 100%;
   font-weight: 200;
   color: #392137;
 }
+
 #gradient {
-  font-size: 1000%;
+  font-size: 800%;
   font-weight: 200;
   background: linear-gradient(to right, #392137 10%, #592831 50%);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
+  width: 100%;
+
 }
+
 .clock {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; /* Vertically aligns content to the center */
   position: relative;
   width: auto;
   height: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-left: 30px;
-}
-.outer {
-  width: 100%; /* Adjust the width as necessary */
-  max-width: 400px; /* Your fixed width or maximum width */
-  height: 400px; /* Adjust height as necessary */
-  background-color: transparent; 
-  border-radius: 50%;
-  border: 7.5px solid #392137;
-  position: relative; /* Change to relative if it should be within a container */
-  margin: 0 auto; /* Center it horizontally if needed */
-  /* transform: rotate(-15deg); If this causes overflow, consider adjusting or removing */
-}
-.inner {
-  width: 25px;
-  height: 25px;
-  background-color: #592831;
-  border-radius: 50%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1;
+  background-color: transparent;
+
 }
 
-.hand {
-  width: 3px;
-  height: 175px; 
-  background-color: #392137;
+.clock::before {
+  content: '';
   position: absolute;
-  top: 28%; /* Adjusted from 30% to 25% to move up by 5% */
-  left: 50%;
-  transform-origin: bottom;
-  transform: translate(-50%, -50%) rotate(0deg); 
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('./navIcons/hourglassbg.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 75%;
+  opacity: 0.25;
   z-index: -1;
-  animation: rotateHand 12s linear infinite; 
+  animation: rotateImage 6s linear infinite;
 }
 
-@keyframes rotateHand {
-  from { transform: translate(-50%, -50%) rotate(0deg); }
-  to { transform: translate(-50%, -50%) rotate(360deg); }
+@keyframes rotateImage {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
-.number-container {
-  position: absolute;
-  width: 90%;
-  height: 90%;
-  top: 46%;
-  left: 46%;
+
+.hour-container {
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr;
+  height: 600px;
+  width: 600px;
+  border-radius: 50%;
+  overflow: hidden;
+  
 }
-.number {
-  position: absolute;
-  font-size: 150%;
-  color: #592831;
-  width: 40px; 
-  height: 40px; 
-  line-height: 40px;
-  text-align: center;
+
+@keyframes scrollUp {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 0 -100%;
+  }
 }
-#hourimg {
-  width: 32px;
-  height: auto;
+
+@keyframes scrollDown {
+  from {
+    background-position: 0 -100%;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
+
+#hour1 {
+
+  background-image: url('./navIcons/hourglassbg.png');
+  background-repeat: repeat-y;
+  background-size: 100%;
+  animation: scrollUp 10s linear infinite;
+
+}
+
+#hour2 {
+
+  background-image: url('./navIcons/bottombg.png');
+  background-repeat: repeat-y;
+  background-size: 100%;
+  animation: scrollDown 10s linear infinite;
+  
+}
+
+#hour3 {
+
+  background-image: url('./navIcons/topbg.png');
+  background-repeat: repeat-y;
+  background-size: 100%;
+  animation: scrollUp 10s linear infinite;
+
+}
+
+#hour4 {
+
+  background-image: url('./navIcons/hourglassbg.png');
+  background-repeat: repeat-y;
+  background-size: 100%;
+  animation: scrollDown 10s linear infinite;
+  
 }
 
 /*design section*/
@@ -359,14 +427,13 @@ button {
 
   width: 100svw;
   height: 100svh;
-  background-color: transparent;
+  background-color: #EDDEE1;
   /* border: 5px solid black; */
 
 }
 
 .designContent {
 
-  margin: 50px;
   /* border: 2px solid black; */
   width: auto;
   height: auto;
@@ -382,7 +449,7 @@ button {
 .designTitle {
 
   /* border: 2px solid black; */
-  color: #DBC1AC;
+  color: #392137;
   font-size: 500%;
   font-weight: 300;
 
@@ -391,7 +458,7 @@ button {
 .designSubtitle {
 
   /* border: 2px solid black; */
-  color: #DBC1AC;
+  color: #392137;
   font-size: 125%;
   font-weight: 200;
   margin-top: -40px; /* Adjust the negative value as needed to reduce the space */
@@ -417,7 +484,7 @@ button {
   padding-right: 40px;
   font-size: 200%;
   font-weight: 200;
-  color: #DBC1AC;
+  color: #392137;
 
 }
 
@@ -432,11 +499,12 @@ button {
 
 .designImages img {
 
-  width: 750px;
+  width: 600px;
   height: 300px;
   opacity: 0;
   transition: opacity .25s ease-out; /* Smooth transition for the opacity */
   border-radius: 30px;
+  object-fit: cover;
 }
 
 @keyframes fadeInUnderline {
@@ -462,7 +530,7 @@ button {
   text-underline-offset: 7.5px; /* Adjust the offset as needed */
   text-decoration-thickness: 1px;
   transition: text-decoration-color 0.25s ease-in-out; /* Transition applies to both hover and un-hover states */
-  color: #DBC1AC;
+  color: #392137;
   margin: 20px;
 
 }
@@ -471,15 +539,6 @@ button {
   text-decoration-color: #DBC1AC; /* This will trigger the transition on hover */
 }
 
-
-.main-footer {
-  width: 100%;
-  height: 400px;
-  background-color: #412F28;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
 .faq-link {
   font-size: 100px;
@@ -496,8 +555,203 @@ button {
   margin-bottom: 50px;
 }
 
+
+
+.aeternum-footer {
+  flex-shrink: 0;
+  height: 500px;
+  background-color: #020402;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 150px;
+}
+
+.footer-content {
+  text-align: center;
+}
+
+.aeternum-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 45px;
+  font-weight: 600;
+  color: #EDDEE1;
+  margin: 0;
+}
+
+.faq-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #D5BAA5;
+  margin-top: 8px;
+  text-decoration: underline;
+}
+
+.contact-info {
+  margin-top: 20px;
+  color: #D5BAA5;
+  font-size: 15px;
+}
+
+.email-info, .phone-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.icon {
+  width: 24px; /* Increased from 20px */
+  height: 24px; /* Increased from 20px */
+  margin-right: 20px; /* Increased from 10px */
+}
+
+.divider {
+  width: 716px;
+  height: 1px;
+  background-color: #D5BAA5;
+  margin: 30px auto;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 30px; /* Increased from 20px to give more space between icons */
+}
+
+.social-icon img {
+  width: 32px; /* Increased from 24px */
+  height: 32px; /* Increased from 24px */
+  filter: brightness(0) invert(1);
+}
+.pricing {
+  background-color: #CAD6EC;
+  padding: 50px 0;
+  overflow: hidden;
+  height: 1400px;
+  display: flex;
+  align-items: center;
+}
+
+.pricing-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 3vw; /* Increased from 2vw to 3vw */
+  width: 80%; /* Slightly increased to accommodate larger gap */
+  max-width: 1450px; /* Slightly increased to accommodate larger gap */
+  margin: 0 auto;
+  height: 90vh;
+  padding: 20px
+}
+
+.pricing-box {
+  flex: 1;
+  height: 1200px;
+  width: 30%;
+  background-color: #EDDEE1;
+  /* border: 1px solid;*/
+  border-radius:10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
 .pricing-header {
+  position: absolute;
+  top: 20px; /* This creates the gap from the top */
+  left: 0;
+  right: 0;
+  height: 60px; /* Adjust this value to change the height of the small rectangle */
+  background-color: #FF6B6B;
+  border-radius: 5px; /* Optional: if you want rounded corners */
+  position: relative;
+  padding-top: 20px; 
   text-align: center;
   font-size: 24px;
-  margin-bottom: 20px;  color: #DBC1AC;
+  margin-bottom: 20px;  
 }
+
+
+.pricing-plans{
+  font-family: 'Major Mono Display';
+  font-size: 50px;
+  font-weight: normal;
+  font-weight: 900;
+}
+
+.pricing-content {
+  margin-top: 100px; 
+  padding: 20px;
+  font-size: 15px;
+  line-height: 1.6; /* Increase this value for more spacing */
+}
+
+.tier-price {
+  margin-top : 45px;
+  margin-bottom: 0;
+  font-size: 40px;
+  font-family: 'Inter';
+  font-weight: 500;
+ 
+}
+
+.pricing-box-content {
+  position: absolute;
+  top: 20px; 
+  left: 10px;
+  right: 10px;
+  height: 60px; 
+  background-color: #f0f0f0; 
+  border-radius: 5px;
+  overflow: auto;
+  
+
+}
+.pricing-content button {
+  background-color: #392137;
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-top: 20px;
+}
+
+.pricing-content button:hover {
+  background-color: #CAD6EC;
+  transform: scale(1.05); 
+}
+
+
+/* Media query for smaller screens */
+@media (max-width: 1200px) {
+  .pricing-container {
+    width: 85%; /* Slightly increased */
+    gap: 2.5vw; /* Slightly reduced gap for smaller screens */
+  }
+}
+
+/* Media query for very small screens */
+@media (max-width: 600px) {
+  .pricing {
+    height: auto;
+    padding: 30px 0;
+  }
+
+  .pricing-container {
+    flex-direction: column;
+    gap: 25px; /* Increased gap for stacked boxes */
+    width: 90%; /* Slightly increased */
+    height: auto;
+  }
+
+  .pricing-box {
+    width: 100%;
+    height: 80vh;
+    margin-bottom: 0; /* Removed margin, using gap instead */
+  }
+}
+

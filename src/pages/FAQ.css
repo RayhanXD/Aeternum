@@ -1,25 +1,193 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
 * {
-
   font-family: 'Inter', sans-serif;
 }
 
-.faq-title
-{
-    color: #DBC1AC;
+.body {
+  background-color: #CAD6EC;
+  height: 1900px
 }
 
-.faq-item 
-{
-    text-align: center; 
-    padding-top: 10px;
-    padding-bottom: 20px;
+
+
+
+
+.faq-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;  
+}
+
+
+.faq-title {
+  color: #020402;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 100px;
+  font-weight: 700;
+}
+
+.faq-item {
+  background-color: #EDDEE1;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+  max-width: 800px;
+  width: 90%;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  
+}
+
+.faq-item:hover {
+  background-color: #CAD6EC;
+  transform: scale(1.02);
+}
+
+.faq-item .faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.faq-item .faq-question h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.faq-item .arrow {
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 10px solid #333;
+  transition: transform 0.3s ease;
+}
+
+.faq-item .arrow.up {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  height: 0;
+  overflow: hidden;
+  transition: height 0.3s ease, padding 0.3s ease;
+  padding: 0 20px;
+}
+
+.faq-answer.expanded {
+  height: auto;
+  padding: 20px;
+  border-top: 1px solid #ccc;
+}
+
+.faq-answer p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.5;
+
+  
+  color: #333;
+}
+
+
+.faq-link {
+  font-size: 100px;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.faq-link:hover {
+  text-decoration: underline;
+}
+
+
+.aeternum-footer {
+  background-color: #412F28;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 50px 0;
+  margin-top: auto;
+}
+
+.footer-content {
+  text-align: center;
+}
+
+.aeternum-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 45px;
+  font-weight: 600;
+  color: #D5BAA5;
+  margin: 0;
+}
+
+.faq-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #D5BAA5;
+  margin-top: 8px;
+  text-decoration: underline;
+}
+
+.contact-info {
+  margin-top: 20px;
+  color: #D5BAA5;
+  font-size: 15px;
+}
+
+.email-info, .phone-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.icon {
+  width: 24px; /* Increased from 20px */
+  height: 24px; /* Increased from 20px */
+  margin-right: 20px; /* Increased from 10px */
+}
+
+.divider {
+  width: 716px;
+  height: 1px;
+  background-color: #D5BAA5;
+  margin: 30px auto;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 30px; /* Increased from 20px to give more space between icons */
+}
+
+.social-icon img {
+  width: 32px; /* Increased from 24px */
+  height: 32px; /* Increased from 24px */
+  filter: brightness(0) invert(1);
+}
+
+.home-link {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 20px;
+  color: lightgray;
+  text-decoration: underline;
+  margin-top: 50px;  /* Additional top margin */
+  margin-left: 170px; /* Additional left margin */
 
 }
 
-.faq-item h2
-{
-    margin-top: 0; 
-    margin-bottom: 20px;
-}
+
+
+
