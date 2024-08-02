@@ -64,7 +64,7 @@ button {
   opacity: 0;
   font-weight: 100;
   font-size: 1000%;
-  letter-spacing: 15px;
+  letter-spacing: 5px;
   color: #020402;
   animation: fadeIn 2s ease forwards;
 }
