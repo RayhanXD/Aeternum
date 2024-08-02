@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './FAQ.css'; 
+import { Link } from 'react-router-dom';
+
 
 
 const faqData = [
@@ -60,68 +62,62 @@ const Faq = () => {
     setExpandedIndex(expandedIndex === index ? null : index);
   };
 
-  
+  // Scroll to top on initial render
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
-<body>
-<div className="body">
-    <div className="faq-container">
-    <a href="/" class="home-link">Home</a>
-      <h1 className="faq-title">F A Q</h1>
-      {faqData.map((faq, index) => (
-        <div 
-          key={index} 
-          className={`faq-item ${expandedIndex === index ? 'expanded' : ''}`}
-          onClick={() => toggleExpand(index)}
-        >
-          <div className="faq-question">
-            <h2>{faq.question}</h2>
-            <span className={`arrow ${expandedIndex === index ? 'up' : 'down'}`}></span>
-          </div>
-          <div className={`faq-answer ${expandedIndex === index ? 'expanded' : ''}`}>
-            <p>{faq.answer}</p>
-          </div>
-        </div>
-      ))}
-    </div>
-
-
-    <footer className="aeternum-footer">
-        <div className="footer-content">
-          <h2 className="aeternum-text">Aeternum</h2>
-          <a href="/FAQ" class="faq-link">
-      <p class="faq-text">FAQ</p>
-    </a>
-          <div className="contact-info">
-            <div className="email-info">
-            <a href="#" class="social-icon"><img src={`${process.env.PUBLIC_URL}/static/email.png`} alt="description" /></a>
-              <span>aeternum.dev@gmail.com</span>
+      <body>
+        <div className="faq-container">
+          <Link to="/" className="home-link">Home</Link>
+          <h1 className="faq-title">F A Q</h1>
+          {faqData.map((faq, index) => (
+            <div 
+              key={index} 
+              className={`faq-item ${expandedIndex === index ? 'expanded' : ''}`}
+              onClick={() => toggleExpand(index)}
+            >
+              <div className="faq-question">
+                <h2>{faq.question}</h2>
+                <span className={`arrow ${expandedIndex === index ? 'up' : 'down'}`}></span>
+              </div>
+              <div className={`faq-answer ${expandedIndex === index ? 'expanded' : ''}`}>
+                <p>{faq.answer}</p>
+              </div>
             </div>
-            <div className="phone-info">
-            <a href="#" class="social-icon"><img src={`${process.env.PUBLIC_URL}/static/phone.png`} alt="description" /></a>
-              <span>11111111</span>
+          ))}
+        </div>
+
+
+      <footer className="aeternum-footer">
+          <div className="footer-content">
+            <h2 className="aeternum-text">Aeternum</h2>
+            <Link to="/FAQ" className="faq-link">
+              <p className="faq-text">FAQ</p>
+            </Link>
+            <div className="contact-info">
+              <div className="email-info">
+              <a href="#" class="social-icon"><img src={`${process.env.PUBLIC_URL}/static/email.png`} alt="description" /></a>
+                <span>aeternum.dev@gmail.com</span>
+              </div>
+              <div className="phone-info">
+              <a href="#" class="social-icon"><img src={`${process.env.PUBLIC_URL}/static/phone.png`} alt="description" /></a>
+                <span>11111111</span>
+              </div>
+            </div>
+            <div className="divider"></div>
+            <div className="social-icons">
+            <a href="#" className="social-icon"><img src={`${process.env.PUBLIC_URL}/static/facebook.png`} alt="description" /></a>
+              <a href="#" className="social-icon"><img src={`${process.env.PUBLIC_URL}/static/twitter.png`} alt="description" /></a>
+              <a href="https://www.instagram.com/aeternum.dev?igsh=enpscm16ZzZzY3Vt" className="social-icon" target="_blank"  rel="noopener noreferrer"><img src={`${process.env.PUBLIC_URL}/static/insta.png`} alt="description" /></a>
+              <a href="https://www.linkedin.com/company/aeternum-web-design/" target="_blank" rel="noopener noreferrer" className="social-icon"><img src={`${process.env.PUBLIC_URL}/static/linkedin.png`} alt="description" /></a>
+              <a href="#" className="social-icon"><img src={`${process.env.PUBLIC_URL}/static/tiktok.png`} alt="description" /></a>
+              <a href="#" className="social-icon"><img src={`${process.env.PUBLIC_URL}/static/utube.png`} alt="description" /></a>
             </div>
           </div>
-          <div className="divider"></div>
-          <div className="social-icons">
-          <a href="#" className="social-icon"><img src={`${process.env.PUBLIC_URL}/static/facebook.png`} alt="description" /></a>
-            <a href="#" className="social-icon"><img src={`${process.env.PUBLIC_URL}/static/twitter.png`} alt="description" /></a>
-            <a href="https://www.instagram.com/aeternum.dev?igsh=enpscm16ZzZzY3Vt" className="social-icon" target="_blank"  rel="noopener noreferrer"><img src={`${process.env.PUBLIC_URL}/static/insta.png`} alt="description" /></a>
-
-
-
-
-            <a href="https://www.linkedin.com/company/aeternum-web-design/" target="_blank" rel="noopener noreferrer" className="social-icon"><img src={`${process.env.PUBLIC_URL}/static/linkedin.png`} alt="description" /></a>
-            
-            
-            
-            <a href="#" className="social-icon"><img src={`${process.env.PUBLIC_URL}/static/tiktok.png`} alt="description" /></a>
-            <a href="#" className="social-icon"><img src={`${process.env.PUBLIC_URL}/static/utube.png`} alt="description" /></a>
-          </div>
-        </div>
-      </footer>
-   </div>
-</body>
+        </footer>
+      </body>
   );
 };
 

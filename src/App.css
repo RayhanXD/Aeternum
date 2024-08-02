@@ -85,7 +85,7 @@ button {
   height: 35px;
   width: 1000px;
   z-index: 1000;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 12px 0 rgba(255, 255, 255, .25);
   opacity: 0;
   animation: fadeIn 2s ease-out forwards, slideUp .85s ease-out forwards;
 }
@@ -202,11 +202,12 @@ button {
   z-index: 10;
 }
 .nav {
-  width: 525px;
+  width: auto;
   height: 35px;
   background-color: #392137;
   border-radius: 50px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-color: #020402;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -446,12 +447,43 @@ button {
 
   /* border: 2px solid black; */
 }
+
+@keyframes slide-in {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-design-title {
+  animation: slide-in 2s ease forwards;
+}
+
+@keyframes slide-in-bottom-to-top {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.content-design {
+  animation: slide-in-bottom-to-top 2s ease forwards;
+}
+
 .designTitle {
 
   /* border: 2px solid black; */
   color: #392137;
   font-size: 500%;
-  font-weight: 300;
+  font-weight: 400;
 
 }
 
@@ -461,7 +493,7 @@ button {
   color: #392137;
   font-size: 125%;
   font-weight: 200;
-  margin-top: -40px; /* Adjust the negative value as needed to reduce the space */
+  margin-top: -50px; /* Adjust the negative value as needed to reduce the space */
   margin-bottom: 40px;
   text-align: center;
   
@@ -470,17 +502,17 @@ button {
 .designChange {
 
   height: auto;
-  width: 100%;
-  border-radius: 30px;
+  width: auto;
+  border-radius: 20px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  /* border: 2px solid black; */
+  border: 2px solid white;
 }
 .designTypes {
 
   /* border: 2px solid black; */
   list-style-type: none;
+  padding-top: 20px;
   padding-right: 40px;
   font-size: 200%;
   font-weight: 200;
@@ -492,9 +524,9 @@ button {
 
   border-radius: 30px;
   height: 300px;
-  border: 2px solid black;
-  background-color: rgba(0, 0, 0, 0.1);
-  
+  border: 2px solid white;
+  background-color: rgba(25, 25, 25, 0.1);
+  margin: 40px;
 }
 
 .designImages img {
@@ -512,13 +544,13 @@ button {
     text-decoration-color: transparent;
   }
   to {
-    text-decoration-color: #DBC1AC;
+    text-decoration-color: #392137;
   }
 }
 
 .underline {
 
-  background-color: white;
+  background-color: black;
   width: 300px;
   height: 1px;
   margin: 20px;
@@ -536,7 +568,7 @@ button {
 }
 
 .designName:hover {
-  text-decoration-color: #DBC1AC; /* This will trigger the transition on hover */
+  text-decoration-color: #CAD6EC; /* This will trigger the transition on hover */
 }
 
 
@@ -554,8 +586,6 @@ button {
 .sextion{
   margin-bottom: 50px;
 }
-
-
 
 .aeternum-footer {
   flex-shrink: 0;

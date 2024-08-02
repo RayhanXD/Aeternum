@@ -8,8 +8,6 @@ import {
 } from 'react-router-dom'
 import FAQ from './pages/FAQ.js';
 import { App } from './App';
-import Basic from './pages/Basic.js'
-
 
 
 const router = createBrowserRouter([

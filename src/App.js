@@ -2,23 +2,21 @@ import './App.css';
 import './locomotive-scroll.css';
 import bag from './navIcons/bag.png';
 import down from './navIcons/down.png';
-import emptyglass from './navIcons/hourglass1.png';
-import halfglass from './navIcons/glassbottom.png';
-import halfglass1 from './navIcons/glasstop.png';
 import up from './navIcons/up.png';
 import info from './navIcons/info.png';
 import hourglass0 from './navIcons/hourglass0.png'
 import brush from './navIcons/brush.png';
 import React, { useEffect, useRef } from 'react';
 import LocomotiveScroll from 'locomotive-scroll';
-import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
-
+import { Link } from 'react-router-dom';
 
 export const App = () => {
 
   const scrollRef = new useRef(null);
   const clockRef = useRef(null);
   const mainRef = useRef(null);
+  const designTitleRef = useRef(null);
+  const designContentRef = useRef(null);
 
   const handleMouseEnter = (designType) => {
     const imageElement = document.querySelector('.designImages img');
@@ -42,6 +40,7 @@ export const App = () => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
+          // Existing functionality
           if (entry.target === clockRef.current && entry.isIntersecting) {
             entry.target.classList.add('slide-in-clock');
           } else if (entry.target === clockRef.current) {
@@ -52,10 +51,19 @@ export const App = () => {
           } else if (entry.target === mainRef.current) {
             entry.target.classList.remove('slide-in-main');
           }
-          
+          if (entry.target === designTitleRef.current && entry.isIntersecting) {
+            entry.target.classList.add('animate-design-title');
+          } else if (entry.target === designTitleRef.current) {
+            entry.target.classList.remove('animate-design-title');
+          }
+          if (entry.target == designContentRef.current && entry.isIntersecting) {
+            entry.target.classList.add('content-design');
+          } else if (entry.target === designContentRef.current) {
+            entry.target.classList.remove('content-design');
+          }
         });
       },
-      { threshold: 0.1 }
+      { threshold: [0.1, 0.25] } // Use an array to observe both thresholds
     );
 
     if (clockRef.current) {
@@ -66,12 +74,26 @@ export const App = () => {
       observer.observe(mainRef.current);
     }
 
+    if (designTitleRef.current) {
+      observer.observe(designTitleRef.current);
+    }
+
+    if (designContentRef.current) {
+      observer.observe(designContentRef.current);
+    }
+
     return () => {
       if (clockRef.current) {
         observer.unobserve(clockRef.current);
       }
       if (mainRef.current) {
         observer.unobserve(mainRef.current);
+      }
+      if (designTitleRef.current) {
+        observer.unobserve(designTitleRef.current);
+      }
+      if (designContentRef.current) {
+        observer.unobserve(designContentRef.current);
       }
       scroll.destroy();
     };
@@ -171,11 +193,11 @@ export const App = () => {
       
       <section className="design">
           <div className='designContent'>
-            <div className='titles'>
-              <h1 className='designTitle'>Personally designed by us.</h1>
-              <h2 className='designSubtitle'>Hover over each design to discover our capabilities</h2>
-            </div>
-            <div className='designChange'>
+          <div className='titles' ref={designTitleRef}>
+            <h1 className='designTitle'>Designs crafted by us.</h1>
+            <h2 className='designSubtitle'>Hover over each design to discover our capabilities</h2>
+          </div>
+            <div className='designChange' ref={designContentRef}>
               <ul className='designTypes'>
                 <li>
                   <a className='designName' onMouseEnter={() => handleMouseEnter('nixar')} onMouseLeave={handleMouseLeave} href='#Minimal'>Minimalistic</a>
@@ -306,9 +328,9 @@ export const App = () => {
       <footer className="aeternum-footer">
         <div className="footer-content">
           <h2 className="aeternum-text">Aeternum</h2>
-          <a href="/FAQ" class="faq-link">
-      <p class="faq-text">FAQ</p>
-    </a>
+          <Link to="/FAQ" className="faq-link">
+            <p className="faq-text">FAQ</p>
+          </Link>
           <div className="contact-info">
             <div className="email-info">
             <a href="#" class="social-icon"><img src={`${process.env.PUBLIC_URL}/static/email.png`} alt="description" /></a>
@@ -324,10 +346,6 @@ export const App = () => {
           <a href="#" className="social-icon"><img src={`${process.env.PUBLIC_URL}/static/facebook.png`} alt="description" /></a>
             <a href="#" className="social-icon"><img src={`${process.env.PUBLIC_URL}/static/twitter.png`} alt="description" /></a>
             <a href="https://www.instagram.com/aeternum.dev?igsh=enpscm16ZzZzY3Vt" className="social-icon" target="_blank"  rel="noopener noreferrer"><img src={`${process.env.PUBLIC_URL}/static/insta.png`} alt="description" /></a>
-
-
-
-
             <a href="https://www.linkedin.com/company/aeternum-web-design/" target="_blank" rel="noopener noreferrer" className="social-icon"><img src={`${process.env.PUBLIC_URL}/static/linkedin.png`} alt="description" /></a>
             <a href="#" className="social-icon"><img src={`${process.env.PUBLIC_URL}/static/tiktok.png`} alt="description" /></a>
             <a href="#" className="social-icon"><img src={`${process.env.PUBLIC_URL}/static/utube.png`} alt="description" /></a>
